@@ -49,13 +49,9 @@ void help()
 int captolow(int c)
 {
     if (c >= 'A' && c <= 'Z')
-    {
         return c + 'a' - 'A';
-    }
     else
-    {
         return c;
-    }
 }
 
 long int hextoint(char x[])
@@ -64,23 +60,15 @@ long int hextoint(char x[])
     long int y = 0;
 
     if (x[0] == '0' && (x[1]=='x' || x[1]=='X'))
-    {
         i = 2;
-    }
     else
-    {
         i = 0;
-    }
     for (; (x[i] >= '0' && x[i] <= '9') || (x[i] >= 'a' && x[i] <= 'z') || (x[i] >='A' && x[i] <= 'Z');++i)
     {
         if (captolow(x[i]) > '9')
-        {
             y = 16 * y + (10 + captolow(x[i]) - 'a');
-        }
         else
-        {
             y = 16 * y + (captolow(x[i]) - '0');
-        }
     }
     return y;
 }
@@ -127,7 +115,6 @@ int process( )
             {
                 long int y=0;
                 long int x=config.file_offset[i]-ftell(out_file);
-                printf("%d",config.file_offset[i]);
                 if(config.null_fill[0]=='0')
                 {
                     for(y=0;y<x;y++)
